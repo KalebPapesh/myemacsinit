@@ -71,6 +71,9 @@
 ;;template sections
 (define-auto-insert "\.sh" "my-sh-template.sh")
 
+;;overwrite the selected region after marking and yanking. ie cut and paste
+(delete-selection-mode 1)
+
 (defun save-macro (name)                  
     "save a macro. Take a name as argument
      and save the last defined macro under 
