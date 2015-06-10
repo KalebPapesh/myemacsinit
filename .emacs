@@ -91,4 +91,3 @@
 (fset 'removeline
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 11 backspace 14] 0 "%d")) arg)))
 
-;;this is a commit test
