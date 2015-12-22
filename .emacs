@@ -32,9 +32,11 @@
 ;;show matching parens
 (show-paren-mode 1)
 
-;;Add slime
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "sbcl")
+;;Add slime if exists
+(if
+	(file-exists-p "~/quicklisp/slime-helper.el")
+	(load (expand-file-name "~/quicklisp/slime-helper.el"))
+	(setq inferior-lisp-program "sbcl"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -93,4 +95,3 @@
 
 (fset 'removeline
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 11 backspace 14] 0 "%d")) arg)))
-
