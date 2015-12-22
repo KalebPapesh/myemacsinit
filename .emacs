@@ -48,7 +48,7 @@
 (add-to-list 'default-frame-alist '(foreground-color . "#00FF00"))
 
 ;;make background black in gui
-(add-to-list 'default-frame-alist '(background-color . "#000000"))
+(when (display-graphic-p) (set-background-color "black"))
 
 ;;save scripts as executable upon save
 (add-hook 'after-save-hook
@@ -73,6 +73,9 @@
 
 ;;overwrite the selected region after marking and yanking. ie cut and paste
 (delete-selection-mode 1)
+
+;;auto update buffer if changes are made to file
+(global-auto-revert-mode t)
 
 (defun save-macro (name)                  
     "save a macro. Take a name as argument
